@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TURKEY CREEK CYCLES | Magazine-Style Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tcc-orange: #FF5500;
+            --tcc-black: #000000;
+            --tcc-silver: #C0C0C0;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #000;
+            background-color: #fff;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .title-font {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        
+        .content-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .tcc-orange {
+            color: var(--tcc-orange);
+        }
+        
+        .tcc-orange-bg {
+            background-color: var(--tcc-orange);
+        }
+        
+        .tcc-border {
+            border-color: var(--tcc-orange);
+        }
+        
+        /* Shine Border Effect */
+        .shine-border {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .shine-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                #000000 0%,
+                var(--tcc-orange) 25%,
+                var(--tcc-silver) 50%,
+                var(--tcc-orange) 75%,
+                #000000 100%
+            );
+            border-radius: inherit;
+            animation: shine 4s linear infinite;
+        }
+        
+        .shine-border::after {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            background: white;
+            z-index: -1;
+        }
+        
+        .shine-content {
+            position: relative;
+            z-index: 1;
+            background: white;
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+        
+        @keyframes shine {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .article-image {
+            height: 240px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .article-large-image {
+            height: 380px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .topics-border {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .orange-divider {
+            height: 3px;
+            background-color: var(--tcc-orange);
+        }
+        
+        .article-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .circle-button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .circle-button:hover {
+            border-color: var(--tcc-orange);
+            color: var(--tcc-orange);
+        }
+    </style>
+</head>
+<body class="pb-20">
+    <!-- Navigation -->
+    <div class="topics-border py-6 flex justify-between items-center">
+        <div class="flex space-x-8">
+            <a href="#" class="font-bold tracking-widest text-sm">TOPICS</a>
+            <a href="/index.html" class="font-bold tracking-widest text-sm">BUILDS</a>
+            <a href="tcc-swag-shop.html" target="_blank" class="font-bold tracking-widest text-sm">SHOP</a>
+        </div>
+        <div class="flex space-x-8">
+            <img src="hub-images/logo_tcc-primary.png" alt="Turkey Creek Cycles Logo" class="h-12" />
+        </div>
+    </div>
+    
+    <!-- Main Title -->
+    <div class="mt-12 mb-20" style="background-image: url('hub-images/tcc-old-signage.jpg'); background-repeat: no-repeat; background-position: top right; background-size: contain;">
+        <h1 class="title-font text-8xl md:text-9xl leading-none">TURKEY<br>CREEK<br>CYCLES</h1>
+    </div>
+    
+    <!-- Featured Section -->
+    <div class="mb-12">
+        <div class="flex items-center mb-2">
+            <h2 class="text-xl font-bold mr-4">FEATURED</h2>
+            <div class="orange-divider flex-grow"></div>
+        </div>
+        <p class="text-xl content-font mb-8">Custom motorcycle culture, craftsmanship and the pursuit of mechanical perfection</p>
+        
+        <!-- Main Featured Article -->
+        <div class="shine-border mb-16">
+            <div class="shine-content p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <img src="/hub-images/blog/tcc-fabricator.png" alt="Master builder working on custom motorcycle" class="article-large-image mb-4">
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <span class="text-sm font-bold text-gray-500 mb-2 block">MASTER BUILDERS</span>
+                            <h3 class="text-3xl font-bold mb-4">The Art of Metal & Machine — How custom builders transform raw materials into mechanical masterpieces</h3>
+                            <p class="content-font text-lg mb-6">Master builder Jake Mitchell discusses the philosophy behind his approach to V-twin customization, balancing performance engineering with timeless aesthetics.</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-bold">CUSTOM BUILDS</span>
+                            <div class="flex space-x-3">
+                                <div class="circle-button">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <div class="circle-button">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Article Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <div class="shine-border article-card">
+                <div class="shine-content">
+                    <img src="hub-images/blog/cta_v-twin-moto.png" alt="Custom motorcycle engine" class="article-image">
+                    <div class="p-6">
+                        <span class="text-sm font-bold text-gray-500 mb-2 block">ENGINE WORK</span>
+                        <h3 class="text-xl font-bold mb-3">Mechanical Revolution — The evolution of custom V-twin engines</h3>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-bold">TECHNICAL</span>
+                            <div class="circle-button">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="shine-border article-card">
+                <div class="shine-content">
+                    <img src="hub-images/blog/tcc-builder-headshot.png" alt="Craftsman headshot" class="article-image">
+                    <div class="p-6">
+                        <span class="text-sm font-bold text-gray-500 mb-2 block">CRAFTSMANSHIP</span>
+                        <h3 class="text-xl font-bold mb-3">Born to Build — Profiles of master bike builders defining today's custom scene</h3>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-bold">FEATURES</span>
+                            <div class="circle-button">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="shine-border article-card">
+                <div class="shine-content">
+                    <img src="hub-images/blog/cta_tcc-sunset-rider.png" alt="Vintage motorcycle on open road" class="article-image">
+                    <div class="p-6">
+                        <span class="text-sm font-bold text-gray-500 mb-2 block">CULTURE</span>
+                        <h3 class="text-xl font-bold mb-3">The Road Less Traveled — Finding freedom through motorcycle culture</h3>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-bold">LIFESTYLE</span>
+                            <div class="circle-button">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Section -->
+    <div class="mb-12 mt-20">
+        <div class="flex items-center mb-2">
+            <h2 class="text-xl font-bold mr-4">CRAFTSMANSHIP</h2>
+            <div class="orange-divider flex-grow"></div>
+        </div>
+        
+        <!-- Secondary Article Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
+            <!-- Article 4 -->
+            <div class="shine-border article-card">
+                <div class="shine-content">
+                    <img src="hub-images/blog/cta_tcc-handlebars.jpg" alt="Detail of custom motorcycle handlebars" class="article-large-image">
+                    <div class="p-6">
+                        <span class="text-sm font-bold text-gray-500 mb-2 block">DESIGN</span>
+                        <h3 class="text-xl font-bold mb-3">Form Follows Function — How engineering constraints shape custom motorcycle aesthetics</h3>
+                        <p class="content-font mb-6">The delicate balance between mechanical necessity and design elegance in custom motorcycle building.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-bold">DESIGN PRINCIPLES</span>
+                            <div class="circle-button">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 5 -->
+            <div class="shine-border article-card">
+                <div class="shine-content">
+                    <img src="hub-images/blog/cta_tcc-toolkit.jpg" alt="Motorcycle workshop tools" class="article-large-image">
+                    <div class="p-6">
+                        <span class="text-sm font-bold text-gray-500 mb-2 block">WORKSHOP</span>
+                        <h3 class="text-xl font-bold mb-3">Tools of the Trade — Essential equipment for the custom motorcycle builder</h3>
+                        <p class="content-font mb-6">From basic hand tools to specialized fabrication equipment, exploring the workshop essentials.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-sm font-bold">TECHNICAL</span>
+                            <div class="circle-button">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Third Section -->
+    <div class="mt-20">
+        <div class="flex items-center mb-2">
+            <h2 class="text-xl font-bold mr-4">COMMUNITY</h2>
+            <div class="orange-divider flex-grow"></div>
+        </div>
+        
+        <!-- Featured Event -->
+        <div class="shine-border mt-10">
+            <div class="shine-content p-6">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+                    <div class="md:col-span-3">
+                        <img src="hub-images/blog/tcc-blog-rally.jpg" alt="Motorcycle gathering" class="article-large-image mb-4">
+                    </div>
+                    <div class="md:col-span-2 flex flex-col justify-between">
+                        <div>
+                            <span class="text-sm font-bold text-gray-500 mb-2 block">EVENTS</span>
+                            <h3 class="text-3xl font-bold mb-4">Builder's Showcase — Turkey Creek Cycles hosts annual custom bike exhibition</h3>
+                            <p class="content-font text-lg mb-6">Join us for a celebration of craftsmanship featuring the finest custom motorcycles from builders across the country.</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-bold">OCTOBER 15-17, 2023</span>
+                            <div class="flex space-x-3">
+                                <div class="circle-button">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <div class="circle-button">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="mt-24 pt-10 border-t border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-bold mb-4">TURKEY CREEK CYCLES</h3>
+                <p class="text-sm mb-4">Custom V-Twin Fabrication • Performance Builds • Vintage Restorations</p>
+                <p class="text-sm">Est. 2008 • Basehor, Kansas</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">CONNECT</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-xl"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-xl"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">NEWSLETTER</h3>
+                <p class="text-sm mb-4">Subscribe to receive updates on builds, events, and merchandise.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email" class="border border-gray-300 p-2 flex-grow text-sm">
+                    <button class="bg-black text-white px-4 py-2 text-sm">SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 text-center text-sm">
+            <p>© 2023 Turkey Creek Cycles. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
