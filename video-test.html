@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background: #333;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Background Test</h1>
+    
+    <div class="video-container">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="/videos/video-1749337159021.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+        <div class="overlay-text">
+            <h2>Video Background Working!</h2>
+            <p>This should show video playing behind this text</p>
+        </div>
+    </div>
+    
+    <h2>Simple Video Player</h2>
+    <video controls width="400">
+        <source src="/videos/video-1749337159021.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+    
+    <script>
+        // Debug video loading
+        const videos = document.querySelectorAll('video');
+        videos.forEach((video, index) => {
+            console.log(`Video ${index}:`, video);
+            
+            video.addEventListener('loadeddata', () => {
+                console.log(`Video ${index} loaded successfully`);
+            });
+            
+            video.addEventListener('error', (e) => {
+                console.error(`Video ${index} error:`, e);
+            });
+            
+            video.addEventListener('canplay', () => {
+                console.log(`Video ${index} can play`);
+            });
+        });
+    </script>
+</body>
+</html>
