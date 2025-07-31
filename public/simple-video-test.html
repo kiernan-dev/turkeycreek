@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            overflow: hidden;
+        }
+        
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding-top: 50vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        .debug {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <video 
+        id="backgroundVideo"
+        class="video-background"
+        autoplay 
+        loop 
+        muted 
+        playsinline
+        src="/videos/video-1749337159021.mp4"
+    >
+    </video>
+    
+    <div class="debug">
+        <p>Video Status: <span id="status">Loading...</span></p>
+        <p>Ready State: <span id="readyState">0</span></p>
+        <p>Current Time: <span id="currentTime">0</span></p>
+        <button onclick="forcePlay()">Force Play</button>
+    </div>
+    
+    <div class="content">
+        <h1>TURKEY CREEK CYCLES</h1>
+        <p>Video Background Test</p>
+    </div>
+    
+    <script>
+        const video = document.getElementById('backgroundVideo');
+        const statusEl = document.getElementById('status');
+        const readyStateEl = document.getElementById('readyState');
+        const currentTimeEl = document.getElementById('currentTime');
+        
+        video.addEventListener('loadstart', () => {
+            statusEl.textContent = 'Loading started...';
+        });
+        
+        video.addEventListener('loadeddata', () => {
+            statusEl.textContent = 'Data loaded!';
+        });
+        
+        video.addEventListener('canplay', () => {
+            statusEl.textContent = 'Can play!';
+        });
+        
+        video.addEventListener('play', () => {
+            statusEl.textContent = 'Playing!';
+        });
+        
+        video.addEventListener('error', (e) => {
+            statusEl.textContent = 'Error: ' + e.target.error?.message;
+        });
+        
+        video.addEventListener('timeupdate', () => {
+            currentTimeEl.textContent = video.currentTime.toFixed(2);
+            readyStateEl.textContent = video.readyState;
+        });
+        
+        function forcePlay() {
+            video.play().then(() => {
+                console.log('Video playing successfully');
+            }).catch(error => {
+                console.error('Failed to play video:', error);
+            });
+        }
+        
+        // Auto-play attempt
+        setTimeout(() => {
+            video.play().catch(error => {
+                console.error('Auto-play failed:', error);
+                statusEl.textContent = 'Auto-play failed: ' + error.message;
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

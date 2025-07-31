@@ -1,0 +1,341 @@
+/* Turkey Creek Cycles Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b, #ea580c);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fbbf24, #f97316);
+}
+
+/* App container */
+.App {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* Chrome effect for text - clean version */
+.chrome-text {
+  background: linear-gradient(45deg, #f59e0b, #ea580c, #f59e0b);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: chromeShine 4s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes chromeShine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Split-screen layout */
+.split-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .split-screen {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
+
+/* Clean button styles */
+.btn-clean {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-clean:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Business card style elements */
+.business-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* Professional typography */
+.heading-primary {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.heading-secondary {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Image showcase styles */
+.image-showcase {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.image-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 0%, rgba(245, 158, 11, 0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Clean animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Contact info styling */
+.contact-highlight {
+  color: #f59e0b;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.contact-highlight:hover {
+  color: #fbbf24;
+}
+
+/* Professional stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+/* Image navigation dots */
+.nav-dots {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-dot.active {
+  background-color: #f59e0b;
+  transform: scale(1.25);
+}
+
+.nav-dot.inactive {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-dot.inactive:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+/* Remove any remaining particle-related styles */
+.no-particles {
+  /* Ensure no particle effects */
+}
+
+/* Responsive improvements */
+@media (max-width: 1024px) {
+  .heading-primary {
+    font-size: 3rem;
+  }
+  
+  .heading-secondary {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading-primary {
+    font-size: 2.5rem;
+  }
+  
+  .stats-grid {
+    gap: 1rem;
+  }
+}
+
+/* Glow effects */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.glow-amber-strong {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.6);
+}
+
+/* Clean animations only */
+
+/* Metal texture background */
+.metal-texture {
+  background: 
+    linear-gradient(45deg, #2a2a2a 25%, transparent 25%), 
+    linear-gradient(-45deg, #2a2a2a 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #2a2a2a 75%), 
+    linear-gradient(-45deg, transparent 75%, #2a2a2a 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Industrial border effect */
+.industrial-border {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #f59e0b, #ea580c) border-box;
+  border-radius: 8px;
+}
+
+/* No spark effects - clean business design */
+
+/* Text effects */
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Button hover effects */
+.btn-hover-glow:hover {
+  box-shadow: 
+    0 0 20px rgba(245, 158, 11, 0.4),
+    0 0 40px rgba(245, 158, 11, 0.2),
+    0 0 80px rgba(245, 158, 11, 0.1);
+}
+
+/* Image overlay effects */
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(245, 158, 11, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* Clean professional animations only */
+
+/* Form focus effects */
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-center {
+    text-align: center;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
+}
+
+/* Three.js canvas styling */
+canvas {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
